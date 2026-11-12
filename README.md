@@ -6,7 +6,7 @@ Sales Overview Chatbot is a local AI-powered application that lets users ask nat
 
 ## Features
 
-- Ask questions such as “What beverages are available?” or “What was ordered on 14/02/2026?”
+- Ask questions such as “What beverages are available?” or “What was ordered on any date?”
 - Generate and inspect read-only SQL using schema context from `database_cheat_sheet.txt`.
 - Display database results as interactive tables and summarize them with Llama 3.1.
 - Compare beverage sales in a bar chart.
