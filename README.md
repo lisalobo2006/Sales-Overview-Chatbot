@@ -47,7 +47,7 @@ These filenames are recommended for consistency. If your actual application has 
 
 ## 3. Import the MySQL database
 
-The user can create a new schema based on thier need. If the user cant create thier own schema they can use the `galaxy_cafe.sql`.
+The user can create a new cafe schema based on thier need. If the user cannot create thier own schema they can use the `galaxy_cafe.sql`.
 
 The `galaxy_cafe.sql` export contains **both table definitions and inserted records**, not just empty tables. The MySQL database/schema created inside the export is named `galaxy_cafe`.
 
