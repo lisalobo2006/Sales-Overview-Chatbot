@@ -48,6 +48,8 @@ These filenames are recommended for consistency. If your actual application has 
 
 ## 3. Import the MySQL database
 
+The user can create a new schema based on thier need. If the user cant create thier own schema they can use the `galaxy_cafe.sql`.
+
 The `galaxy_cafe.sql` export contains **both table definitions and inserted records**, not just empty tables. The MySQL database/schema created inside the export is named `galaxy_cafe`.
 
 In MySQL Workbench, connect to your server, choose **File → Open SQL Script**, select `galaxy_cafe.sql`, and execute the script. **Back up any existing `galaxy_cafe` database first**: the export includes statements that can replace tables and their data.
