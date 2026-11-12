@@ -212,6 +212,7 @@ Try these questions:
 - Predict Matcha Latte demand for the next day.
 - Predict Matcha Latte demand for the next 10 days.
 - Forecast Americano demand for the next 7 days.
+- And any other forcasting questions.
 
 AI-generated SQL may be incorrect; verify important answers against MySQL.
 
