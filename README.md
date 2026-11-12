@@ -190,7 +190,6 @@ The cheat sheet contains **schema knowledge**, not live sales transactions. MySQ
 - **Linear Regression:** Estimates overall sales trends using elapsed calendar days; multi-day beverage forecasts also apply weekday adjustments.
 - **Prophet:** Fits a time-series model and can use weekly seasonality when enough history exists.
 - **Forecast dates:** The next date after the latest historical sales record, not necessarily tomorrow in real life.
-- **Limitations:** Missing paid transactions do not always mean the café was open with zero demand; stockouts and availability are not explicitly tracked. Neither model is proven more accurate until backtested against held-out historical sales.
 
 ## 9. Run the chatbot
 
