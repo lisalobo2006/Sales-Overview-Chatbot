@@ -14,7 +14,9 @@ What it can do
 - Compare beverage sales with a bar chart.
 - Forecast next-day café revenue and next-day beverage demand with linear regression.
 - Forecast 1–30 days of beverage demand using linear regression and Prophet (if enough sales history exists).
-Limitations: This is a local prototype, not a production-secure database assistant. Its AI-generated SQL currently has only a basic SELECT-prefix check. Use a MySQL read-only account and test with non-sensitive/demo data. Do not expose this app publicly without additional SQL validation, authentication, and privacy controls.
+
+Limitations: This application is a local prototype, not a production-ready database assistant. AI-generated SQL queries are inspected using SQLParse to help reject unsupported SQL statements, and a dedicated read-only MySQL account is used to restrict database access. Additional authentication, authorization, privacy controls, and security testing are required before public deployment. SQLParse validation alone does not guarantee complete SQL security.
+
 1. Install the prerequisites
 Install these on your computer:
 1. Python (a compatible 3.10–3.11 environment is a reasonable starting point; verify compatibility for your OS).
