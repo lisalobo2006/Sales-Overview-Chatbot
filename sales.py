@@ -1,6 +1,4 @@
-# =====================================================================
-# A SPECIAL FIX FOR WINDOWS COMPUTERS TO PREVENT ERRORS
-# =====================================================================
+
 try:
     # Try to load a backup helper tool called 'pysqlite3'
     __import__('pysqlite3')
@@ -12,14 +10,14 @@ except ImportError:
     pass
 
 # =====================================================================
-# LOADING THE TOOLS OUR PROGRAM NEEDS TO RUN
+# LOADING THE REQUIREMENTS THE PROGRAM NEEDS TO RUN
 # =====================================================================
 import mysql.connector                      # Tool to talk to our MySQL database where cafe data is stored
 import ollama                               # Tool to talk to the AI brain (Llama 3.1) running on our computer
 import streamlit as st                      # Tool to build the beautiful website interface and chat box
 import chromadb                             # A smart folder to store and search through our text files (RAG)
 from sklearn.linear_model import LinearRegression  # A simple math model that draws a line to guess future trends
-from prophet import Prophet                 # A smart model made by Meta/Facebook to guess future sales using calendar patterns
+from prophet import Prophet                 # A smart model to guess future sales using calendar patterns
 import numpy as np                          # Tool to help with heavy number crunching and math lists
 from datetime import datetime, timedelta    # Tools to help our code understand calendar dates and look into tomorrow
 import pandas as pd                         # Tool to organize data into clean, readable spreadsheet tables
