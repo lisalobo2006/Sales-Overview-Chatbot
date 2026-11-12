@@ -6,7 +6,7 @@ This Galaxy cafe contains my data on the Cafe information. The user can create t
 
 Ask questions about café sales in plain English, see SQL results as tables and charts, and forecast revenue or beverage demand. Built with Python + Streamlit + MySQL + Ollama (Llama 3.1) + ChromaDB + scikit-learn + Prophet.
 
-New here? You do not need to know SQL to ask questions, but you do need to create and populate a MySQL database first. This repository includes a starter schema (galaxy_cafe_schema.sql). The schema creates empty tables; it does not contain the author's private business records.
+New here? You do not need to know SQL to ask questions, but you do need to create and populate a MySQL database first. This repository includes a starter schema (galaxy_cafe.sql). The schema creates empty tables; it does not contain the author's private business records.
 
 What it can do
 - Turn a question such as “What beverages are available?” into a MySQL query using a database schema cheat sheet.
@@ -31,19 +31,19 @@ cd YOUR-REPOSITORY
 Replace the example URL with the actual GitHub repository URL. Or click Code → Download ZIP, extract it, and open a terminal in that folder.
 
 Expected files:
-galaxy.py                  # Streamlit application
+sales.py                   # Streamlit application
 database_cheat_sheet.txt   # Tables, columns, joins and AI guidance
-galaxy_cafe_schema.sql     # Starter MySQL schema
+galaxy_cafe.sql            # Starter MySQL schema
 .env.example               # Safe example configuration
 .gitignore                 # Prevents secrets and local data from being committed
 requirements.txt           # Python dependencies
 README.md                  # This guide
 
 3. Create your MySQL database — exact café table structure
-Easiest method (MySQL Workbench): Open Workbench → connect to your local MySQL server → File → Open SQL Script → select galaxy_cafe_schema.sql → click the lightning-bolt Execute button.
+Easiest method (MySQL Workbench): Open Workbench → connect to your local MySQL server → File → Open SQL Script → select galaxy_cafe.sql → click the lightning-bolt Execute button.
 
 Or use the terminal (you'll be prompted for your MySQL administrator password):
-mysql -u root -p < galaxy_cafe_schema.sql
+mysql -u root -p < galaxy_cafe.sql
 The script creates the database galaxy_cafe and these 13 tables:
 Table	What it stores	Primary key
 customer	Customer accounts	CID
