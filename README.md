@@ -1,6 +1,7 @@
 # Cafe-Sales-Overview-Chatbot
 
 ☕ Galaxy Café — AI Sales Chatbot & Forecasting
+
 This Galaxy cafe contains my data on the Cafe information. The user can create the same MYSQL as shown below for thier own cafe.
 Ask questions about café sales in plain English, see SQL results as tables and charts, and forecast revenue or beverage demand. Built with Python + Streamlit + MySQL + Ollama (Llama 3.1) + ChromaDB + scikit-learn + Prophet.
 New here? You do not need to know SQL to ask questions, but you do need to create and populate a MySQL database first. This repository includes a starter schema (galaxy_cafe_schema.sql). The schema creates empty tables; it does not contain the author's private business records.
