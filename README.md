@@ -38,7 +38,6 @@ Sales-Overview-Chatbot/
 ├── database_cheat_sheet.txt
 ├── requirements.txt
 ├── README.md
-├── .env.example         # Safe template, if provided
 ├── .gitignore           # Excludes secrets and local files
 ├── .env                 # Create locally; never commit
 └── rag_storage/         # Created automatically by ChromaDB
