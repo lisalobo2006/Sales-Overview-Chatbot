@@ -115,7 +115,15 @@ GRANT SELECT ON galaxy_cafe.beverage TO 'reader'@'localhost';
 GRANT SELECT ON galaxy_cafe.menu_variant TO 'reader'@'localhost';
 GRANT SELECT ON galaxy_cafe.sales_invoice TO 'reader'@'localhost';
 GRANT SELECT ON galaxy_cafe.sales_details TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.sales_payment TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.payment_type TO 'reader'@'localhost';
 GRANT SELECT (CID, C_NAME) ON galaxy_cafe.customer TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.employee TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.bev_size TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.temperature_type TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.ingredient TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.consumable TO 'reader'@'localhost';
+GRANT SELECT ON galaxy_cafe.recipe_detail TO 'reader'@'localhost';
 SHOW GRANTS FOR 'reader'@'localhost';
 ```
 
