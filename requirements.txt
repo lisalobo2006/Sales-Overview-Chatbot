@@ -1,0 +1,10 @@
+streamlit
+mysql-connector-python
+ollama
+chromadb
+scikit-learn
+prophet
+numpy
+pandas
+python-dotenv
+sqlparse

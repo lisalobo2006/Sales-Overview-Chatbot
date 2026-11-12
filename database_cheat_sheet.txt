@@ -1,0 +1,24 @@
+# =========================================================================
+# ALL POSSIBLE BRIDGE PATHS FOR MULTI-TABLE JOINS (Look here first)
+# =========================================================================
+Bridge 1 (Customer & Ordered Items): customer.CID -> sales_invoice.CID | sales_invoice.SIID -> sales_details.SIID | sales_details.MVID -> menu_variant.MVID -> beverage.BID
+Bridge 2 (Customer & Drink Details): customer.CID -> sales_invoice.CID | sales_invoice.SIID -> sales_details.SIID | sales_details.MVID -> menu_variant.MVID -> bev_size.SID AND temperature_type.TID
+Bridge 3 (Customer Payment Methods): customer.CID -> sales_invoice.CID | sales_invoice.SIID -> sales_payment.SIID -> payment_type.PTID
+Bridge 4 (Employee Sales Performance): employee.EID -> sales_invoice.EID | sales_invoice.SIID -> sales_details.SIID | sales_details.MVID -> menu_variant.MVID -> beverage.BID
+
+# =========================================================================
+# TABLES (Your exact original structure and column names)
+# =========================================================================
+Table: 'customer' | Columns: 'CID' (Primary Key), 'C_NAME', 'EMAIL', 'PHONE_NUMBER', 'GENDER', 'PASSWORD_', 'profile_pic'. Synonyms: client metrics, buyer accounts, guests, customer details. CRITICAL RULES: 1. If asking for a list/names of customers, SELECT ONLY 'C_NAME'. 2. NEVER use 'customers' as an alias.
+Table: 'employee' | Columns: 'EID' (Primary Key), 'E_NAME', 'JOB_TITLE', 'SALARY', 'DOB', 'PHONE_NUMBER', 'EMAIL'. Synonyms: staff records, baristas, workers, team members. CRITICAL RULES: Only include 'SALARY' if the user explicitly says 'salary' or 'pay'. Otherwise, SELECT only 'E_NAME' and 'JOB_TITLE'.
+Table: 'beverage' | Columns: 'BID' (Primary Key), 'B_NAME', 'bev_descr', 'CATEGORY', 'IMAGE'. Synonyms: drinks, coffee types, teas, juices, fluid menu items. CRITICAL RULES: If asking about available beverages, SELECT ONLY 'B_NAME' and 'bev_descr'.
+Table: 'bev_size' | Columns: 'SID' (Primary Key), 'SIZE_NAME' (Values: small, medium, large), 'CAPACITY_ml'. Synonyms: drink portions, cup sizes. CRITICAL RULE: This table uses SID. Do not confuse it with invoice columns.
+Table: 'temperature_type' | Columns: 'TID' (Primary Key), 'TYPE_NAME' (Values: hot, iced). Synonyms: drink temperature, hot vs iced classifications.
+Table: 'menu_variant' | Columns: 'MVID' (Primary Key), 'SELLING_PRICE', 'BID' (Foreign Key to beverage.BID), 'TID' (Foreign Key to temperature_type.TID), 'SID' (Foreign Key to bev_size.SID). Synonyms: menu configurations, menu customizations, pricing variances.
+Table: 'consumable' | Columns: 'CNID' (Primary Key), 'CN_NAME'. Synonyms: inventory, cups, lids, straws, sleeves, sticks, towels, garbage bags, soap, sanitizer.
+Table: 'ingredient' | Columns: 'IID' (Primary Key), 'I_NAME', 'UNIT'. Synonyms: inventory, raw materials, coffee beans, milk stock, ice, sugar, cream, salt, sauce.
+Table: 'recipe_detail' | Columns: 'RID' (Primary Key), 'QUANTITY', 'MVID' (Foreign Key to menu_variant.MVID), 'IID' (Foreign Key to ingredient.IID), 'CNID' (Foreign Key to consumable.CNID), 'EID' (Foreign Key to employee.EID). Synonyms: brewing instructions, how to make an item, ingredients used, recipe steps.
+Table: 'sales_invoice' | Columns: 'SIID' (Primary Key), 'INVOICE_DATE', 'EID' (Foreign Key to employee.EID), 'CID' (Foreign Key to customer.CID), 'order_fulfilled'. Synonyms: orders, total bills, transaction receipt records, order history, invoice table. CRITICAL RULE: SIID is the unique identifier for invoices. To see who bought something, you must match customer.CID = sales_invoice.CID.
+Table: 'sales_details' | Columns: 'SDID' (Primary Key), 'QUANTITY', 'SELLING_PRICE', 'SIID' (Foreign Key to sales_invoice.SIID), 'MVID' (Foreign Key to menu_variant.MVID). Synonyms: line items, quantity ordered breakdown, sales details, individual invoice itemization. CRITICAL RULE: SDID is just the line ID. You MUST use SIID to connect sales_details back to sales_invoice.
+Table: 'payment_type' | Columns: 'PTID' (Primary Key), 'PT_METHOD' (Values: cash, credit, debit). Synonyms: transaction modes, online transfers, e-wallets.
+Table: 'sales_payment' | Columns: 'SPID' (Primary Key), 'TOTAL_AMOUNT', 'PTID' (Foreign Key to payment_type.PTID), 'SIID' (Foreign Key to sales_invoice.SIID). Synonyms: payment processing confirmations, invoice payments.
